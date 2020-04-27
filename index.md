@@ -84,15 +84,19 @@ index 46d49bf..9247db6 100644
 
 
 git log命令显示从最近到最远的提交日志
+
 `$ git log`
 或者
 `$ git reflog`
 
 把当前版本回退到上一个版本，就可以使用git reset命令
+
 `$ git reset --hard HEAD^ `
 
 查看文本内容
+
 `$ cat readme.txt`
 
 指定回到未来的某个版本($git log 获得commend id)
+
 `$ git reset --hard 1094a`
