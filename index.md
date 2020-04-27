@@ -53,3 +53,46 @@ $ git add file1.txt
 $ git add file2.txt file3.txt
 $ git commit -m "add 3 files."
 ```
+
+git status命令可以让我们时刻掌握仓库当前的状态
+
+```
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+
+git diff顾名思义就是查看difference，显示的格式正是Unix通用的diff格式
+```
+$ git diff readme.txt 
+diff --git a/readme.txt b/readme.txt
+index 46d49bf..9247db6 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,2 +1,2 @@
+-Git is a version control system.
++Git is a distributed version control system.
+ Git is free software.
+```
+
+
+git log命令显示从最近到最远的提交日志
+`$ git log`
+或者
+`$ git reflog`
+
+把当前版本回退到上一个版本，就可以使用git reset命令
+`$ git reset --hard HEAD^ `
+
+查看文本内容
+`$ cat readme.txt`
+
+指定回到未来的某个版本($git log 获得commend id)
+`$ git reset --hard 1094a`
