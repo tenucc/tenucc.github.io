@@ -100,3 +100,13 @@ git log命令显示从最近到最远的提交日志
 指定回到未来的某个版本($git log 获得commend id)
 
 `$ git reset --hard 1094a`
+
+<h2>工作区和暂存区</h2>
+```
+$ git status
+$ git add LICENSE readme.txt DS_Store
+$ git command -m "understand how stage works"
+$ git status
+On branch master
+nothing to commit, working tree clean
+```
