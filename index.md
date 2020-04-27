@@ -102,6 +102,7 @@ git log命令显示从最近到最远的提交日志
 `$ git reset --hard 1094a`
 
 <h2>工作区和暂存区</h2>
+
 ```
 $ git status
 $ git add LICENSE readme.txt DS_Store
