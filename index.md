@@ -14,4 +14,25 @@
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
+
+创建版本库
+
+```
+mkdir learngit
+cd learngit
+git init
+```
+
+显示隐藏的.git目录
+```
+ls -ah
+```
+
+在ui界面编写一个readme.txt
+```
+Git is a version control system.
+Git is free software.
+```
+
+
       
