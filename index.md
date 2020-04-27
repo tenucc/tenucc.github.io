@@ -41,4 +41,15 @@ Git is free software.
 
 `$ git add readme.txt`
 
-ss
+
+用命令git commit告诉Git，把文件提交到仓库：
+
+`$ git commit -m "wrote a readme file"`
+
+commit可以一次提交很多文件，所以你可以多次add不同的文件，比如：
+
+```
+$ git add file1.txt
+$ git add file2.txt file3.txt
+$ git commit -m "add 3 files."
+```
