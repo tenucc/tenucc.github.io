@@ -191,7 +191,7 @@ On branch master
 nothing to commit, working tree clean
 ```
 
-评论区有点东西
+<h2>评论区有点东西<h2>
 
 ```
 工作区>>>>暂存区>>>>仓库和操作指令
@@ -213,4 +213,22 @@ git diff HEAD 查看工作区和仓库的差异，
 git add的反向命令git checkout，撤销工作区修改，即把暂存区最新版本转移到工作区，
 
 git commit的反向命令git reset HEAD，就是把仓库最新版本转移到暂存区。
+```
+
+Git管理的是修改，当你用git add命令后，在工作区的第一次修改被放入暂存区，准备提交，但是，在工作区的第二次修改并没有放入暂存区，所以，git commit只负责把暂存区的修改提交了，也就是第一次的修改被提交了，第二次的修改不会被提交。
+
+提交后，用git diff HEAD -- readme.txt命令可以查看工作区和版本库里面最新版本的区别：
+
+```
+$ git diff HEAD -- readme.txt 
+diff --git a/readme.txt b/readme.txt
+index 76d770f..a9c5755 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,4 +1,4 @@
+ Git is a distributed version control system.
+ Git is free software distributed under the GPL.
+ Git has a mutable index called stage.
+-Git tracks changes.
++Git tracks changes of files.
 ```
