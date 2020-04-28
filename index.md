@@ -101,7 +101,7 @@ git log命令显示从最近到最远的提交日志
 
 `$ git reset --hard 1094a`
 
-<h2>工作区和暂存区</h2>
+<h2>工作区和暂存区/版本库</h2>
 
 ```
 $ git status
@@ -110,4 +110,107 @@ $ git command -m "understand how stage works"
 $ git status
 On branch master
 nothing to commit, working tree clean
+```
+
+<h2>管理修改、撤销修改、删除文件</h2>
+工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
+`$ git ls -ah`
+Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。
+把文件往Git版本库里添加的时候，是分两步执行的：
+
+第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；
+
+第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。
+
+因为我们创建Git版本库时，Git自动为我们创建了唯一一个master分支，所以，现在，git commit就是往master分支上提交更改。
+
+你可以简单理解为，需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。
+
+我们再练习一遍，先对readme.txt做个修改，比如加上一行内容
+然后，在工作区新增一个LICENSE文本文件（内容随便写）
+git status 查看一下状态
+
+```
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   readme.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	LICENSE
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Git非常清楚地告诉我们，readme.txt被修改了，而LICENSE还从来没有被添加过，所以它的状态是Untracked。
+
+现在，使用两次命令git add，把readme.txt和LICENSE都添加后，用git status再查看一下：
+
+```
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   LICENSE
+	modified:   readme.txt	
+```
+
+所以，git add命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行git commit就可以一次性把暂存区的所有修改提交到分支。
+
+```
+$ git commit -m "understand how stage works"
+[master e43a48b] understand how stage works
+ 2 files changed, 2 insertions(+)
+ create mode 100644 LICENSE
+```
+
+一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：
+(实际操作中还需要
+```git add .DS_Store LICENSE.txt readme.txt
+git commit -m "understand how stage works"
+```
+工作区和暂存区stage才是干净的)
+工作区和版本库：版本库分为stage和master，stage又称暂存区。
+```
+$ git status
+On branch master
+nothing to commit, working tree clean
+```
+
+一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：
+
+```
+$ git status
+On branch master
+nothing to commit, working tree clean
+```
+
+评论区有点东西
+
+```
+工作区>>>>暂存区>>>>仓库和操作指令
+九只蜗牛Leo created at December 2, 2019 11:10 AM, Last updated at February 11, 2020 5:05 PM
+感觉大家把简单问题复杂化了，看着头晕，
+
+Git管理的文件分为：工作区，版本库，版本库又分为暂存区stage和暂存区分支master(仓库)
+
+工作区>>>>暂存区>>>>仓库
+
+git add把文件从工作区>>>>暂存区，git commit把文件从暂存区>>>>仓库，
+
+git diff查看工作区和暂存区差异，
+
+git diff --cached查看暂存区和仓库差异，
+
+git diff HEAD 查看工作区和仓库的差异，
+
+git add的反向命令git checkout，撤销工作区修改，即把暂存区最新版本转移到工作区，
+
+git commit的反向命令git reset HEAD，就是把仓库最新版本转移到暂存区。
 ```
