@@ -9,6 +9,12 @@
 <h2>Git是用C语言开发的</h2>
   <h2>CVS及SVN都是集中式的版本控制系统，而Git是分布式版本控制系统</h2>
   
+  Git虽然极其强大，命令繁多，但常用的就那么十来个，掌握好这十几个常用命令，你已经可以得心应手地使用Git了。
+
+友情附赠国外网友制作的Git Cheat Sheet，建议打印出来备用：
+  
+  https://gitee.com/liaoxuefeng/learn-java/raw/master/teach/git-cheatsheet.pdf
+  
   <h1>在Mac OS X上安装Git</h1>
   
 ```
@@ -353,6 +359,13 @@ github-addkey-2
 确保你拥有一个GitHub账号后，我们就即将开始远程仓库的学习。
 
 <h2>添加远程库</h2>
+要关联一个远程库，使用命令`git remote add origin git@server-name:path/repo-name.git；`
+
+关联后，使用命令`git push -u origin master第一次推送master分支的所有内容；`
+
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步，真是太方便了！
 
 <h2>从远程库克隆</h2>
 
