@@ -191,7 +191,7 @@ On branch master
 nothing to commit, working tree clean
 ```
 
-<h2>评论区有点东西<h2>
+<h3>评论区有点东西<h3>
 
 ```
 工作区>>>>暂存区>>>>仓库和操作指令
