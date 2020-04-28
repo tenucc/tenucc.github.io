@@ -172,11 +172,15 @@ $ git commit -m "understand how stage works"
 
 一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：
 (实际操作中还需要
-```git add .DS_Store LICENSE.txt readme.txt
+
+```
+git add .DS_Store LICENSE.txt readme.txt
 git commit -m "understand how stage works"
 ```
+
 工作区和暂存区stage才是干净的)
 工作区和版本库：版本库分为stage和master，stage又称暂存区。
+
 ```
 $ git status
 On branch master
