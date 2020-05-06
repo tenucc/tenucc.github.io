@@ -474,3 +474,143 @@ Git鼓励大量使用分支：
 合并某分支到当前分支：git merge <name>
 删除分支：git branch -d <name>
 ```
+
+<h2>解决冲突</h2>
+当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
+解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。
+用git log --graph命令可以看到分支合并图。
+
+<h2>分支管理策略</h2>
+
+创建并切换dev分支：
+```
+$ git switch -c dev
+Switched to a new branch 'dev'
+```
+
+修改readme.txt文件，并提交一个新的commit：
+```
+$ git add readme.txt 
+$ git commit -m "add merge"
+[dev f52c633] add merge
+ 1 file changed, 1 insertion(+)
+```
+
+现在，我们切换回master：
+```
+$ git switch master
+Switched to branch 'master'
+```
+
+准备合并dev分支，请注意--no-ff参数，表示禁用Fast forward：
+```
+$ git merge --no-ff -m "merge with no-ff" dev
+Merge made by the 'recursive' strategy.
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。
+
+合并后，我们用git log看看分支历史：
+```
+$ git log --graph --pretty=oneline --abbrev-commit
+*   e1e9c68 (HEAD -> master) merge with no-ff
+|\  
+| * f52c633 (dev) add merge
+|/  
+*   cf810e4 conflict fixed
+...
+
+```
+
+
+<h2>Bug分支</h2>
+修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；
+
+当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场；
+
+在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。
+
+<h2>强行删除</h2>
+```
+$ git branch -d feature-vulcan
+error: The branch 'feature-vulcan' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D feature-vulcan'.
+```
+
+销毁失败。Git友情提醒，feature-vulcan分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用大写的-D参数。。
+
+现在我们强行删除：
+
+```
+$ git branch -D feature-vulcan
+Deleted branch feature-vulcan (was 287773e).
+```
+
+<h2>多人协作</h2>
+<h2>Rebase</h2>
+<h2>标签管理</h2>
+<h2>创建标签</h2>
+Git中打标签非常简单，首先，切换到需要打标签的分支上：
+```
+$ git branch
+* dev
+  master
+$ git checkout master
+Switched to branch 'master'
+```
+然后，敲命令`git tag <name>`就可以打一个新标签：
+
+`
+$ git tag v1.0
+`
+可以用命令git tag查看所有标签：
+
+```
+$ git tag
+v1.0
+```
+
+<h2>操作标签</h2>
+
+如果标签打错了，也可以删除：
+```
+$ git tag -d v0.1
+Deleted tag 'v0.1' (was f15b0dd)
+```
+
+因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。
+
+如果要推送某个标签到远程，使用命令`git push origin <tagname>`：
+
+```
+$ git push origin v1.0
+Total 0 (delta 0), reused 0 (delta 0)
+To github.com:michaelliao/learngit.git
+ * [new tag]         v1.0 -> v1.0
+```
+
+或者，一次性推送全部尚未推送到远程的本地标签：
+```
+$ git push origin --tags
+Total 0 (delta 0), reused 0 (delta 0)
+To github.com:michaelliao/learngit.git
+ * [new tag]         v0.9 -> v0.9
+```
+如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：
+
+```
+$ git tag -d v0.9
+Deleted tag 'v0.9' (was f52c633)
+```
+然后，从远程删除。删除命令也是push，但是格式如下：
+
+```
+$ git push origin :refs/tags/v0.9
+To github.com:michaelliao/learngit.git
+ - [deleted]         v0.9
+```
+
+要看看是否真的从远程库删除了标签，可以登陆GitHub查看。
+
