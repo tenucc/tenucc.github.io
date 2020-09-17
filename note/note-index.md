@@ -1,2 +1,2 @@
-[English](note/English)
-[git](note/git)
+🇺🇸 [English](note/English)<br>
+😾 [git](note/git)<br>
