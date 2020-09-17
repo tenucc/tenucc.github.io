@@ -5,4 +5,4 @@
 <h2>natural language processing</h2>
 
 [📖 Notes](note/git/liaoxuefeng‘s%20blog.md)<br>
-[💗 Diary](diary/diary-index.md)
+[💗 Diary](diary/diary-index.md) 
