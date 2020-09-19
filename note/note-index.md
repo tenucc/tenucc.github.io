@@ -1,2 +1,2 @@
-🇺🇸 [English](note/English)<br>
-😾 [git](note/git)<br>
+🇺🇸 [English](English/English-index.md)<br>
+😾 [git](git/git-index.md)<br>
