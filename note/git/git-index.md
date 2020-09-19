@@ -1,1 +1,1 @@
-廖雪峰のgit教程(liaoxuefeng‘s blog.md)
+[廖雪峰のgit教程](liaoxuefeng‘s blog.md)
