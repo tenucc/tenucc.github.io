@@ -1,1 +1,1 @@
-[Liaoxuefeng‘s git](liaoxuefeng‘s%20blog.md)
+[Liaoxuefeng‘s git](liaoxuefeng-git.md)
