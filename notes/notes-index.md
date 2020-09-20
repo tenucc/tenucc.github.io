@@ -5,4 +5,8 @@
 🎫 [python](python/python-index.md)<br>
 💻 [data-analysis](data-analysis/data-analysis-index.md)<br>
 🐷 [product-management](product-management/product-management-index.md)<br>
+🌲 [data-structure](data-structure/data-structure-index.md)
+💾 [operating-system](operating-system/operating-system-index.md)
+💻 [computer-architecture](computer-architecture/computer-architecture-index.md)
+🕸️ [computer-networks](computer-networks/computer-networks-index.md)
 
