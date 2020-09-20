@@ -1,1 +1,1 @@
-download my [resume](https://prod-resumes.oss-cn-beijing.aliyuncs.com/prod-resumes/CoXKIJA.pdf?OSSAccessKeyId=LTAI4FbfCNd85oaYuHjLczS8&Expires=1600603919&Signature=K7zni%2FwN7QwafiBaa%2BY0aRGo1yc%3D)
+download my [resume](环信AI_产品_张天宇.pdf)
