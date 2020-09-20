@@ -7,3 +7,4 @@
 [📖 Notes](notes/notes-index.md)<br>
 [💗 Diary](diary/diary-index.md)<br>
 [💡 Books](books/books-index.md)<br>
+[🦢 Resume](resume/resume-index.md)<br>
