@@ -1,5 +1,9 @@
 <h2>数据结构(上)</h2>
 
+<h2><a href="https://next.xuetangx.com/learn/THU08091000384/THU08091000384/4231547/article/6326283" target="_blank">数据结构(上)</a></h2>
+
+[学堂在线](https://next.xuetangx.com/learn/THU08091000384/THU08091000384/4231547/article/6326283)
+
 <h3>CH1 绪论</h3>
 
 
