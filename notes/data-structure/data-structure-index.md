@@ -1,4 +1,3 @@
-<h2>数据结构(上)</h2>
 
 <h2><a href="https://next.xuetangx.com/learn/THU08091000384/THU08091000384/4231547/article/6326283" target="_blank">数据结构(上)</a></h2>
 
@@ -10,7 +9,7 @@
 
 <h3>CH2 向量</h3>
 
-[向量](向量.c++)
+[向量](向量.md)
 
 <h3>CH3 列表</h3>
 
